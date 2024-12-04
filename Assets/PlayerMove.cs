@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
     public float moveSpeed = 5f; // Speed of player movement
-    public float mouseSensitivity = 2f; // Sensitivity for mouse movement
+    public float mouseSensitivity = 2f;
+    
+    private Vector3 rotate;
     public Transform cameraTransform; // Reference to the camera transform
 
     void Start() {
@@ -13,21 +17,30 @@ public class PlayerMove : MonoBehaviour {
 
     void Update() {
         HandleMovement();
-        //HandleCameraRotation();
+        HandleCameraRotation();
     }
 
     void HandleMovement() {
         // Get input from WASD or arrow keys
         float horizontal = Input.GetAxis("Horizontal"); // A/D or Left/Right
         float vertical = Input.GetAxis("Vertical");     // W/S or Up/Down
-
-        // Calculate movement direction relative to the player
-        Vector3 movement = transform.right * horizontal + transform.forward * vertical;
-
-        // Move the player
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        
+        transform.Translate(horizontal * moveSpeed * Time.deltaTime, 0.0f, vertical * moveSpeed * Time.deltaTime);
     }
 
+    void HandleCameraRotation() {
+
+        float MouseX = Input.GetAxis("Mouse X");
+        float MouseY = Input.GetAxis("Mouse Y");
+
+        rotate = new Vector3(MouseY,-MouseX * mouseSensitivity,0);
+        this.transform.eulerAngles -= rotate;
+
+
+
+
+
+    }   
     
 
 }
