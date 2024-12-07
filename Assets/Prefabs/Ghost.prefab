@@ -569,6 +569,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3747220914579570929}
   - component: {fileID: 3255621362928250367}
+  - component: {fileID: 2371846861358090003}
+  - component: {fileID: 2428272862963518675}
+  - component: {fileID: 5502520904453392045}
+  - component: {fileID: 1509628569612647933}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -619,3 +623,83 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!135 &2371846861358090003
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455671526291079140}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0.06859064, y: 0, z: 0}
+--- !u!114 &2428272862963518675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455671526291079140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead7068f175941f4c9769dfca4a8307b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwChance: 0.5
+  throwForce: 25
+  minThrowInterval: 2
+  maxThrowInterval: 5
+--- !u!114 &5502520904453392045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455671526291079140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9c289fc5032e84fb8dde2c809488b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ghostModel: {fileID: 401690546504331060}
+  detectionRange: 40
+  followSpeed: 4.5
+  fieldOfView: 360
+  roamRadius: 15
+  roamWaitTime: 1
+  followDelay: 8
+  numberOfRays: 36
+--- !u!195 &1509628569612647933
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455671526291079140}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.75
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

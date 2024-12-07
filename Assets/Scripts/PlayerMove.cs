@@ -6,7 +6,8 @@ public class PlayerMove : MonoBehaviour {
     public float moveSpeed = 5f; // Speed of player movement
     public float mouseSensitivity = 2f;
     
-    private Vector3 rotate;
+    private Vector3 rotatecam;
+    private Vector3 rotateplayer;
     public Transform cameraTransform; // Reference to the camera transform
 
     void Start() {
@@ -33,8 +34,10 @@ public class PlayerMove : MonoBehaviour {
         float MouseX = Input.GetAxis("Mouse X");
         float MouseY = Input.GetAxis("Mouse Y");
 
-        rotate = new Vector3(MouseY,-MouseX * mouseSensitivity,0);
-        this.transform.eulerAngles -= rotate;
+       
+        rotateplayer = new Vector3(MouseY, -MouseX * mouseSensitivity, 0);
+        this.transform.eulerAngles -= rotateplayer;
+        
 
 
 
